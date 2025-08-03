@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Теннисное табло</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Регистрация участников в матче</span>!</h1>
+<form action="/hungman/newgame" method="get">
+
+    <label for="p1FN">имя игрока 1:</label>
+    <input type="text" id="p1FN" name="p1FN" required>
+
+    <label for="p1LN">фамилия игрока 1:</label>
+    <input type="text" id="p1LN" name="p1LN" required>
+
+    <label for="p2FN">имя игрока 2:</label>
+    <input type="text" id="p2FN" name="p2FN" required>
+
+    <label for="p2LN">фамилия игрока 1:</label>
+    <input type="text" id="p2LN" name="p2LN" required>
+    <button type="submit">Зарегистрировать</button>
+</form>
+</body>
+</html>

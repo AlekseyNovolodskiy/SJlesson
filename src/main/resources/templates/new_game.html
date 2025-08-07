@@ -13,9 +13,14 @@
 </head>
 <body>
 <h1>игроки зарегистрированы</h1>
-<h1>играют: </h1>
-<form action="/hungman/newgame" method="get">
+<h1> </h1>
+<form action="/tennis/play" method="get">
 
+    <h2>играют: игрок <span th:text="${playerOneName}"> </span> против <span th:text="${playerTwoName}"> </span></h2>
+    <input type="hidden" name="p1FN" th:value="${playerOneName}">
+    <input type="hidden" name="p1LN" th:value="${playerOneLastName}">
+    <input type="hidden" name="p2FN" th:value="${playerTwoName}">
+    <input type="hidden" name="p2LN" th:value="${playerTwoLastName}">
     <button type="submit">начать матч</button>
 </form>
 </body>

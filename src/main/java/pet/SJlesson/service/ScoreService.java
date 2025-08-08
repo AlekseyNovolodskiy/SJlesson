@@ -53,6 +53,7 @@ public class ScoreService {
         // 2. Создаем новую запись счета
         ScoredEntity scoredEntity = new ScoredEntity();
         scoredEntity.setPlayerEntity(player);
+        scoredEntity.setScore(1);
 
         // 3. Устанавливаем двустороннюю связь
         player.setScored(scoredEntity);

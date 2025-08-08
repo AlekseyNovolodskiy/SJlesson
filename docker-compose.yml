@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    build: .  # Собирать образ из текущей директории
+    image: sjlesson-tennis-app  # Локальное имя образа
+    container_name: tennis-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:h2:file:/data/tennisdb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+      - SPRING_H2_CONSOLE_ENABLED=true
+      - TZ=Europe/Moscow
+    volumes:
+      - tennis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  h2-console:
+    image: oscarfonts/h2
+    container_name: h2-console
+    restart: unless-stopped
+    ports:
+      - "8082:8082"
+    volumes:
+      - tennis-data:/opt/h2-data
+    environment:
+      - H2_OPTIONS=-webAllowOthers -tcpAllowOthers -webPort 8082
+
+volumes:
+  tennis-data:

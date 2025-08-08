@@ -1,33 +1,50 @@
-HELP.md
+# Стандартные исключения Maven
 target/
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# Файлы IDE
+.idea/
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+*.iws
 .vscode/
+.classpath
+.project
+.settings/
+bin/
+.factorypath
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Исключения для H2 (если хотите отслеживать схему БД)
+# data/
+# *.db
+# *.trace.db
+
+# Исключения для конфигурационных файлов
+!src/main/resources/application*.properties
+!src/main/resources/application*.yml
+
+# Исключение для специфичных файлов проекта
+!src/main/resources/data.sql
+!src/main/resources/schema.sql
+
+# Файлы сборки
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Исключение для maven-wrapper
+!.mvn/wrapper/maven-wrapper.properties
